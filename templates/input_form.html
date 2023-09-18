@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+    <title>Invoice Generator</title>
+    <style>
+
+        @keyframes twinkling {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #f5f5f5;
+            margin: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Multidirectional Lines */
+        .line {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            animation: lineMove 10s infinite;
+            z-index: -1;
+        }
+
+        @keyframes lineMove {
+            0% { transform: translateY(0%); }
+            100% { transform: translateY(-100%); }
+        }
+
+        /* Animated Stars */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkling 1.5s infinite alternate;
+            z-index: -1;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: inline-block;
+            width: 130px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="number"], input[type="date"] {
+            padding: 8px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            background-color: #444;
+            border: 1px solid #555;
+            color: #f5f5f5;
+        }
+
+        input[type="submit"] {
+            background-color: #1E88E5;
+            color: #f5f5f5;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1565C0;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Adding multiple lines and stars to the body -->
+    <div class="line" style="left:0; right: 75%; width: 1px; height: 200vh;"></div>
+    <div class="line" style="top: 0; left: 30%; width: 1px; height: 150vh;"></div>
+    <div class="line" style="top: 0; left: 50%; width: 1px; height: 180vh;"></div>
+    <div class="line" style="top: 0; left: 70%; width: 1px; height: 170vh;"></div>
+    <div class="line" style="top: 0; left: 90%; width: 1px; height: 160vh;"></div>
+
+
+    <div class="star" style="top: 10%; left: 20%; animation-delay: 0.5s;"></div>
+    <div class="star" style="top: 20%; left: 40%; animation-delay: 1s;"></div>
+    <div class="star" style="top: 30%; left: 60%; animation-delay: 1.5s;"></div>
+    <div class="star" style="top: 40%; left: 80%; animation-delay: 2s;"></div>
+    <div class="star" style="top: 50%; left: 10%; animation-delay: 2.5s;"></div>
+    <div class="star" style="top: 60%; left: 30%; animation-delay: 3s;"></div>
+    <div class="star" style="top: 70%; left: 50%; animation-delay: 3.5s;"></div>
+    <div class="star" style="top: 80%; left: 70%; animation-delay: 4s;"></div>
+    <div class="star" style="top: 90%; left: 90%; animation-delay: 4.5s;"></div>
+    <div class="star" style="top: 15%; left: 5%; animation-delay: 0.7s;"></div>
+    <div class="star" style="top: 25%; left: 15%; animation-delay: 1.2s;"></div>
+    <div class="star" style="top: 35%; left: 25%; animation-delay: 1.7s;"></div>
+    <div class="star" style="top: 45%; left: 35%; animation-delay: 2.2s;"></div>
+    <div class="star" style="top: 55%; left: 45%; animation-delay: 2.7s;"></div>
+    <div class="star" style="top: 65%; left: 55%; animation-delay: 3.2s;"></div>
+    <div class="star" style="top: 75%; left: 65%; animation-delay: 3.7s;"></div>
+    <div class="star" style="top: 85%; left: 75%; animation-delay: 4.2s;"></div>
+    <div class="star" style="top: 95%; left: 85%; animation-delay: 4.7s;"></div>
+
+<!-- Estrella fugaz -->
+
+
+    <h1>Invoice Generator</h1>
+    <form method="post">
+        <label for="name">Name:</label><input type="text" name="name"required><br>
+        <label for="bank_name">Bank Name:</label><input type="text" name="bank_name" required><br>
+        <label for="bsb">BSB:</label><input type="text" name="bsb" required><br>
+        <label for="account_number">Account number:</label><input type="text" name="account_number" required><br>
+        <label for="company_name">Company name:</label><input type="text" name="company_name" required><br>
+        <label for="hourly_rate">Hourly Rate:</label><input type="number" step="0.01" name="hourly_rate" required><br>
+
+
+
+        {% for i in range(1, 8) %}
+        <label for="date_{{ i }}">Date:</label><input type="date" name="date_{{ i }}">
+        <label for="location_{{ i }}">Place:</label><input type="text" name="location_{{ i }}">
+        <label for="hours_{{ i }}">Hours:</label><input type="number" step="0.01" name="hours_{{ i }}"><br>
+        {% endfor %}
+        <input type="submit" value="Generate invoice">
+    </form>
+    <footer style="margin-top: 30px; text-align: center;">
+        <p>thank you for using this invoice This software was created and developed for you by Leonardo Rincon.</p>
+          <p>For more information about software and development, <a href="https://api.whatsapp.com/message/C3RDELGJO4ITC1?autoload=1&app_absent=0" target="_blank">escribir aquí</a>.</p>
+    </footer>
+<
+
